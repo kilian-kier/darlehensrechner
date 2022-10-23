@@ -45,7 +45,7 @@ class _GraphState extends State<Graph> {
     if (Data.dataTable.isEmpty) {
       return Card(
         elevation: 5,
-        margin: const EdgeInsets.all(50),
+        margin: const EdgeInsets.all(15),
         child: Container(),
       );
     } else {
@@ -55,7 +55,7 @@ class _GraphState extends State<Graph> {
           Expanded(
               child: Card(
                   elevation: 5,
-                  margin: const EdgeInsets.all(50),
+                  margin: const EdgeInsets.all(15),
                   child: LineChart(LineChartData(
                       minX: 0,
                       minY: 0,

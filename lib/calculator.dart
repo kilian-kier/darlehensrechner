@@ -213,18 +213,20 @@ class _CalculatorState extends State<Calculator> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
-      margin: const EdgeInsets.all(50),
+      margin: const EdgeInsets.all(15),
       child: Form(
           key: _formKey,
           child: Column(
             children: [
               Expanded(
-                  child: Column(
+                  child: SingleChildScrollView(
+                      child: Column(
                 children: [
                   const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
                   FractionallySizedBox(
-                    widthFactor: 0.5,
+                    widthFactor: 0.8,
                     child: TextFormField(
+                        textInputAction: TextInputAction.next,
                         controller: Data.darlehensController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -253,15 +255,13 @@ class _CalculatorState extends State<Calculator> {
                             return 'Bitte gib etwas bei min. 3 Felder ein';
                           }
                           return null;
-                        },
-                        onFieldSubmitted: (value) {
-                          calculate();
                         }),
                   ),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
                   FractionallySizedBox(
-                    widthFactor: 0.5,
+                    widthFactor: 0.8,
                     child: TextFormField(
+                        textInputAction: TextInputAction.next,
                         controller: Data.dauerController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -275,7 +275,7 @@ class _CalculatorState extends State<Calculator> {
                             borderRadius: BorderRadius.circular(5.5),
                           ),
                           prefixIcon:
-                              const Icon(Icons.schedule, color: Colors.blue),
+                          const Icon(Icons.schedule, color: Colors.blue),
                           hintText: "Dauer in Monate",
                           hintStyle: const TextStyle(color: Colors.blue),
                           filled: true,
@@ -289,15 +289,13 @@ class _CalculatorState extends State<Calculator> {
                             return 'Bitte gib etwas bei min. 3 Felder ein';
                           }
                           return null;
-                        },
-                        onFieldSubmitted: (value) {
-                          calculate();
                         }),
                   ),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
                   FractionallySizedBox(
-                    widthFactor: 0.5,
+                    widthFactor: 0.8,
                     child: TextFormField(
+                        textInputAction: TextInputAction.next,
                         controller: Data.zinssatzController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -311,14 +309,14 @@ class _CalculatorState extends State<Calculator> {
                             borderRadius: BorderRadius.circular(5.5),
                           ),
                           prefixIcon:
-                              const Icon(Icons.percent, color: Colors.blue),
+                          const Icon(Icons.percent, color: Colors.blue),
                           hintText: "Zinssatz",
                           hintStyle: const TextStyle(color: Colors.blue),
                           filled: true,
                         ),
                         inputFormatters: [
                           FilteringTextInputFormatter.allow(
-                              RegExp("[0-9]+,?[0-9]*")),
+                              RegExp("[0-9]+[,.]?[0-9]*")),
                           PercentageTextFormatter()
                         ],
                         keyboardType: TextInputType.number,
@@ -327,14 +325,11 @@ class _CalculatorState extends State<Calculator> {
                             return 'Bitte gib etwas bei min. 3 Felder ein';
                           }
                           return null;
-                        },
-                        onFieldSubmitted: (value) {
-                          calculate();
                         }),
                   ),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
                   FractionallySizedBox(
-                    widthFactor: 0.5,
+                    widthFactor: 0.8,
                     child: TextFormField(
                         controller: Data.rateController,
                         decoration: InputDecoration(
@@ -371,7 +366,7 @@ class _CalculatorState extends State<Calculator> {
                   ),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
                   FractionallySizedBox(
-                    widthFactor: 0.5,
+                    widthFactor: 0.8,
                     child: TextFormField(
                       controller: Data.gesamtzinsenController,
                       decoration: InputDecoration(
@@ -394,7 +389,7 @@ class _CalculatorState extends State<Calculator> {
                     ),
                   )
                 ],
-              )),
+              ))),
               Padding(
                   padding: const EdgeInsets.symmetric(vertical: 50.0),
                   child: Row(

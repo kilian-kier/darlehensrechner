@@ -63,13 +63,13 @@ class _TableViewState extends State<TableView> {
     if (Data.dataTable.isEmpty) {
       return Card(
         elevation: 5,
-        margin: const EdgeInsets.all(50),
+        margin: const EdgeInsets.all(15),
         child: Container(),
       );
     } else {
       return Card(
           elevation: 5,
-          margin: const EdgeInsets.all(50),
+          margin: const EdgeInsets.all(15),
           child: SingleChildScrollView(
             child: Table(
                 border: TableBorder.all(color: Colors.grey.shade500),
