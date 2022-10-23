@@ -70,12 +70,15 @@ class _TableViewState extends State<TableView> {
       return Card(
           elevation: 5,
           margin: const EdgeInsets.all(15),
-          child: SingleChildScrollView(
-            child: Table(
-                border: TableBorder.all(color: Colors.grey.shade500),
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                children: rows),
-          ));
+          child: Scrollbar(
+              radius: const Radius.circular(20),
+              thumbVisibility: true,
+              child: SingleChildScrollView(
+                child: Table(
+                    border: TableBorder.all(color: Colors.grey.shade500),
+                    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                    children: rows),
+              )));
     }
   }
 }

@@ -219,8 +219,11 @@ class _CalculatorState extends State<Calculator> {
           child: Column(
             children: [
               Expanded(
-                  child: SingleChildScrollView(
-                      child: Column(
+                  child: Scrollbar(
+                    radius: const Radius.circular(20),
+                    thumbVisibility: true,
+                      child: SingleChildScrollView(
+                          child: Column(
                 children: [
                   const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
                   FractionallySizedBox(
@@ -275,7 +278,7 @@ class _CalculatorState extends State<Calculator> {
                             borderRadius: BorderRadius.circular(5.5),
                           ),
                           prefixIcon:
-                          const Icon(Icons.schedule, color: Colors.blue),
+                              const Icon(Icons.schedule, color: Colors.blue),
                           hintText: "Dauer in Monate",
                           hintStyle: const TextStyle(color: Colors.blue),
                           filled: true,
@@ -309,7 +312,7 @@ class _CalculatorState extends State<Calculator> {
                             borderRadius: BorderRadius.circular(5.5),
                           ),
                           prefixIcon:
-                          const Icon(Icons.percent, color: Colors.blue),
+                              const Icon(Icons.percent, color: Colors.blue),
                           hintText: "Zinssatz",
                           hintStyle: const TextStyle(color: Colors.blue),
                           filled: true,
@@ -389,7 +392,7 @@ class _CalculatorState extends State<Calculator> {
                     ),
                   )
                 ],
-              ))),
+              )))),
               Padding(
                   padding: const EdgeInsets.symmetric(vertical: 50.0),
                   child: Row(
@@ -403,6 +406,7 @@ class _CalculatorState extends State<Calculator> {
                           Data.zinssatzController.clear();
                           Data.rateController.clear();
                           Data.gesamtzinsenController.clear();
+                          _formKey.currentState?.reset();
                         },
                         child: const Text('Löschen'),
                       ),
